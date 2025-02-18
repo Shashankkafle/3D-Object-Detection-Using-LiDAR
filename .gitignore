@@ -1,2 +1,4 @@
 myenv
 *.pt
+*.bin
+velodyne_points

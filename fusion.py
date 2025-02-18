@@ -19,7 +19,7 @@ left_image_paths = sorted(glob(os.path.join(DATA_PATH, 'image_02/data/*.png')))
 right_image_paths = sorted(glob(os.path.join(DATA_PATH, 'image_03/data/*.png')))
 
 # get LiDAR data
-bin_paths = sorted(glob(os.path.join(DATA_PATH, 'valodyne_points/data/*.bin')))
+bin_paths = sorted(glob(os.path.join(DATA_PATH, 'velodyne_points/data/*.bin')))
 
 # get GPS/IMU data
 oxts_paths = sorted(glob(os.path.join(DATA_PATH, r'oxts/data**/*.txt')))
@@ -218,7 +218,7 @@ def imu2geodetic(x, y, z, lat0, lon0, alt0, heading0):
     return lla
 
 
-index = 0
+index = 3
 print("bin_paths",bin_paths)
 
 left_image = cv2.cvtColor(cv2.imread(left_image_paths[index]), cv2.COLOR_BGR2RGB)
@@ -256,10 +256,11 @@ stacked = np.vstack((left_image, velo_image))
 # display stacked iamge
 # %matplotlib inline
 print("showin ")
-plt.imshow(stacked);
+# plt.imshow(stacked);
 
 
-# left_image_2 = cv2.cvtColor(cv2.imread(left_image_paths[index]), cv2.COLOR_BGR2RGB)
-# velo_image_2 = draw_velo_on_image(velo_uvz, left_image_2)
+left_image_2 = cv2.cvtColor(cv2.imread(left_image_paths[index]), cv2.COLOR_BGR2RGB)
+velo_image_2 = draw_velo_on_image(velo_uvz, left_image_2)
+print("showing velo_image_2")
 
-# plt.imshow(velo_image_2);
+plt.imshow(velo_image_2);
