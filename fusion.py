@@ -58,6 +58,9 @@ T_velo_ref0 = get_rigid_transformation(r'data/calib_velo_to_cam.txt')
 # transform from velo (LiDAR) to left color camera (shape 3x4)
 T_velo_cam2 = P_rect2_cam2 @ R_ref0_rect2 @ T_ref0_ref2 @ T_velo_ref0 
 
+
+print("T_velo_cam2", T_velo_cam2)
+
 # homogeneous transform from left color camera to velo (LiDAR) (shape: 4x4)
 T_cam2_velo = np.linalg.inv(np.insert(T_velo_cam2, 3, values=[0,0,0,1], axis=0)) 
 

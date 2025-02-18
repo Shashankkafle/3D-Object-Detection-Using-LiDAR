@@ -60,7 +60,7 @@ def bin2xyzw(bin_path, remove_plane=False):
     xyz = scan_data[:, 0:3] 
 
     # delete negative liDAR points
-    xyz = np.delete(xyz, np.where(xyz[3, :] < 0), axis=1)
+    # xyz = np.delete(xyz, np.where(xyz[3, :] < 0), axis=1)
 
     # use ransac to remove ground plane
     if remove_plane:
